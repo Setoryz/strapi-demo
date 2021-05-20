@@ -7,16 +7,16 @@ export default function Home({ posts }) {
 
       <div className="posts__container">
         {posts.map((post, index) => (
-          <div key={index} className="post">
-            <Link href={`/${post.slug}`}>
-              <a>
+          <Link key={index} href={`/${post.slug}`}>
+            <a>
+              <div key={index} className="post">
                 <h2>{post.title} ▶</h2>
                 <div className="[posts__username">
                   by {post.author.username}
                 </div>
-              </a>
-            </Link>
-          </div>
+              </div>
+            </a>
+          </Link>
         ))}
       </div>
     </HomeContainer>
@@ -44,15 +44,13 @@ const HomeContainer = styled.div`
       padding: 1em 2rem;
       border-radius: 1rem;
       margin: 1rem;
-      & a {
-        &:hover {
-          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        }
-        & h2 {
-          margin: 0.25rem auto;
-          color: #3730a3;
-        }
+      transition: box-shadow 300ms ease-in;
+      & h2 {
+        margin: 0.25rem auto;
+        color: #3730a3;
+      }
+      &:hover {
+        box-shadow: rgba(30, 58, 138, 0.3) 0px 7px 29px 0px;
       }
     }
   }
